@@ -9,10 +9,10 @@ const postImage = asyncHandler(async (req, res) => {
     //Create new image instance(obj) with default info
     //And saved to database
     const image = new Image({
-        author: "Author name",
-        alt: "",
-        src: "new Image"
-    })
+        alt: "Sample Alt",
+        src: "/uploads/sample.jpg",
+        author: req.user._id,
+    });
     const createdImage = await image.save();
     res.status(201).json(createdImage);
 })
@@ -22,8 +22,8 @@ const postImage = asyncHandler(async (req, res) => {
 //access everyone
 
 const getAllImages = asyncHandler(async (req, res) => {
-//Get all images from the database using find method
-//Display images in pages and set the number of images to be displayed
+    //Get all images from the database using find method
+    //Display images in pages and set the number of images to be displayed
     const pageSize = Number(req.query.pageSize) || 10; //Pages size is the number of items in a page
     const pageNumber = Number(req.query.pageNumber) || 1; //Default page number will be 1
 
@@ -76,10 +76,9 @@ const updateImage = asyncHandler(async (req, res) => {
         image.alt = alt ? alt : image.alt;
         image.src = src ? src : image.src;
 
-
         const updatedImage = await image.save();
 
-        res.status(201).json(updatedImage);
+        res.json(updatedImage);
 
     } else {
         res.status(404);

@@ -1,59 +1,103 @@
-import React from 'react'
-import NavbarComponent from '../components/NavbarComponent'
-import FooterComponent from '../components/FooterComponent'
-import { Form } from 'semantic-ui-react'
-import { Button } from 'react-bootstrap'
+import React from 'react';
+import FooterComponent from '../components/FooterComponent';
+import NavbarComponent from '../components/NavbarComponent';
+import { 
+    Button,
+    Container,
+    Form,
+    FormGroup,
+    Label,
+    Input,
+    Col
+ } from 'reactstrap';
+import styled from 'styled-components';
 
-export default class Contact extends React.Component {
-
-    render(){
+function Contact(){
         return(
             <div>
-            <NavbarComponent />
-                <div className="formcontainer">
-            <Form className="form" onSubmit={this.onSubmit}>
-                <Form.Field>
-                    <h1>CONTACT</h1>
-                </Form.Field>
-                <Form.Field>
-                    <label htmlFor="fullname">Name*</label>
-                    <br />
-                    <input type="text"
-                            name="firstname"/>
-                </Form.Field>
-                <br />
+                <NavbarComponent/>
+                <FormContainer>
+                <Title>Contact</Title>
+                    <Form>
+                        <FormGroup row>
+                            <Text sm={2}>
+                                Name (required)
+                            </Text>
+                            <Col sm={10}>
+                            <Input/>
+                            </Col>
+                        </FormGroup>
 
-                <Form.Field>
-                <label htmlFor="email">Email Address*</label>
-                    <br />
-                    <input type="email"
-                            name="email"/>
-                </Form.Field>
-                <br />
+                        <FormGroup row>
+                            <Text sm={2}>
+                            Email Address (required)
+                            </Text>
+                            <Col sm={10}>
+                            <Input
+                                id="exampleEmail"
+                                name="email"
+                                type="email"
+                            />
+                            </Col>
+                        </FormGroup>
 
-                <Form.Field>
-                <label htmlFor="subject">Subject*</label>
-                    <br />
-                    <input type="text"
-                            name="subject"/>
-                </Form.Field>
-                <br />
+                        <FormGroup row>
+                            <Text sm={2}>
+                                Subject
+                            </Text>
+                            <Col sm={10}>
+                            <Input/>
+                            </Col>
+                        </FormGroup>
 
-                <Form.Field>
-                <label htmlFor="message">Message*</label>
-                    <br />
-                    <textarea type="text"
-                            name="message"/>
-                </Form.Field>
-                <br />
+                        <FormGroup row>
+                            <Text sm={2}>
+                                Message
+                            </Text>
+                            <Col sm={10}>
+                            <Input
+                                id="exampleText"
+                                name="text"
+                                type="textarea"
+                            />
+                            </Col>
+                        </FormGroup>
 
-                <Button class="btn btn-success" type="button">Submit</Button>
-            </Form>
-            <FooterComponent />
-
-            </div>
+                        <FormGroup
+                            check
+                            row
+                        >
+                            <Col
+                            sm={{
+                                offset: 2,
+                                size: 10
+                            }}
+                            >
+                            <Button>
+                                Submit
+                            </Button>
+                            </Col>
+                        </FormGroup>
+                    </Form>
+                </FormContainer>
+                
+                <FooterComponent /> 
             </div>
             
         )
     }
-}
+
+const FormContainer = styled(Container)`
+    width:500;
+    padding-bottom: 10%;
+`
+const Title = styled(Label)`
+    font-family: serif;
+    font-size: 30px;
+    margin-top: 5px;
+`
+const Text = styled(Label)`
+    color: #9B9B9B;
+`
+
+export default Contact;

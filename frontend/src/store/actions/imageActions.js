@@ -49,7 +49,7 @@ export const getImageDetails = (id) => async (dispatch) => {
         const {
             data
         } = await axios.get(
-            `http://localhost:5000/api/image/:${id}`
+            `http://localhost:5000/api/image/${id}`
         );
         dispatch({
             type: GET_IMAGE_DETAILS_SUCCESS,
@@ -106,16 +106,16 @@ export const updateImage = (image) => async (dispatch, getState) => {
         const userInfoState = state.userLogin.userInfo;
         const config = {
             headers: {
-                "Content-Type" : "application/json",
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${userInfoState.token}`
             }
         };
-        const { data } = await axios.put(`http://localhost:5000/api/image/:${image._id}`, { image }, config);
-        dispatch ({
+        const { data } = await axios.put(`http://localhost:5000/api/image/${image._id}`, image, config);
+        dispatch({
             type: UPDATE_IMAGE_SUCCESS,
             payload: data
         });
-    } catch(error) {
+    } catch (error) {
         dispatch({
             type: UPDATE_IMAGE_FAILURE,
             payload: error.response && error.response.data.message ?
@@ -125,7 +125,7 @@ export const updateImage = (image) => async (dispatch, getState) => {
     }
 }
 
-export const deleteImage = (id) => async(dispatch, getState, image) => {
+export const deleteImage = (id) => async (dispatch, getState) => {
     try {
         dispatch({
             type: DELETE_IMAGE_REQUEST
@@ -134,11 +134,11 @@ export const deleteImage = (id) => async(dispatch, getState, image) => {
         const userInfoState = state.userLogin.userInfo;
         const config = {
             headers: {
-                "Content-Type" : "application/json",
+                "Content-Type": "application/json",
                 Authorization: `Bearer ${userInfoState.token}`
             }
         };
-        const { data } = await axios.delete(`http://localhost:5000/api/image/:${id}`, { image }, config);
+        const { data } = await axios.delete(`http://localhost:5000/api/image/${id}`, config);
         dispatch({
             type: DELETE_IMAGE_SUCCESS,
             payload: data

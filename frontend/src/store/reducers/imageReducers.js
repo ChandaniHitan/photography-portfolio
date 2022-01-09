@@ -65,14 +65,14 @@ export const GetImageDetailsReducer = (
         case GET_IMAGE_DETAILS_SUCCESS:
             return {
                 loading: false,
+                success: true,
                 image: action.payload,
-                success: true
             }
         case GET_IMAGE_DETAILS_FAILURE:
             return {
                 loading: false,
                 error: action.payload
-            }        
+            }
         default:
             return state;
     }
@@ -93,16 +93,16 @@ export const PostImageReducer = (
         case POST_IMAGE_SUCCESS:
             return {
                 loading: false,
+                success: true,
                 image: action.payload,
-                success: true
-            } 
+            }
         case POST_IMAGE_FAILURE:
             return {
                 loading: false,
                 error: action.payload
             }
         case POST_IMAGE_RESET:
-            return {}           
+            return {}
         default:
             return state;
     }
@@ -123,8 +123,8 @@ export const UpdateImageReducer = (
         case UPDATE_IMAGE_SUCCESS:
             return {
                 loading: false,
+                success: true,
                 image: action.payload,
-                success: true
             }
         case UPDATE_IMAGE_FAILURE:
             return {
@@ -134,8 +134,8 @@ export const UpdateImageReducer = (
         case UPDATE_IMAGE_RESET:
             return {
                 image: {}
-            }            
-            
+            }
+
         default:
             return state;
     }
@@ -159,8 +159,8 @@ export const DeleteImageReducer = (
             return {
                 loading: false,
                 error: action.payload
-            }        
-    
+            }
+
         default:
             return state;
     }

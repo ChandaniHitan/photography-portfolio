@@ -1,41 +1,9 @@
 
 /* body */
+
 body{
     height: 100vh;
-}
-
-/* footer section*/
-
-.footer{
-    background-color: black;
-    color: white;
-}
-.footerGrid{
-   display: grid;
-   grid-auto-flow: column;
-   grid-template-columns: repeat(auto-fit);
-   grid-gap: 10px;
-   justify-content: space-evenly;
-   padding: 10px; 
-}
-
-.footerGrid h4{
-    font-family: "Times New Roman", Times, serif;
-}
-.footerGrid p{
-    color: #808080;
-}
-
-.copyright{
-    text-align: center;
-    padding: 15px;
-}
-.soMe{
-    padding-top: 5px;
-    padding-bottom: 15px;
-    display: grid;
-    grid-auto-flow: column;
-    grid-template-columns: repeat(auto-fit, 25px);
+    background-image: url("https://www.transparenttextures.com/patterns/shattered.png");
 }
 
 /* Photo slider */
@@ -45,33 +13,6 @@ body{
   align-items: center;
   justify-content: center;
   background-size: cover;
-  height: 650px;
+  height: 1000px;
 }
 
-.each-slide span {
-  padding: 20px;
-  font-size: 20px;
-  background: #efefef;
-  text-align: center;
-}
-
-/* Form field */
-
-form{
-    background-color: black;
-    color: white;
-    padding: 50px;
-}
-formcontainer{
-    width:500;
-    
-}
-
-input{
-    width:500px
-}
-
-textarea{
-    height:200px;
-    width: 500px;
-}
