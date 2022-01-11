@@ -1,16 +1,14 @@
 const express = require ('express');
-
 const router = express.Router();
-
-const {protect, admin} = require('../middleware/authMiddleware');
-
+const {protect, admin} = require('../middleware/authMiddleware'); //Middleware
 const {
     registerUser,
     loginUser,
     getAllUsers,
     deleteUser
-} = require('../controllers/userControllers');
+} = require('../controllers/userControllers'); //cb functions from controllers 
 
+//routes
 router
     .route('/')
     .post(registerUser)
@@ -19,8 +17,6 @@ router
 router  
     .route('/:id')
     .delete(protect, admin, deleteUser);
-
-
 
 router.post('/login',loginUser);
 

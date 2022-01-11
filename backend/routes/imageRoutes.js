@@ -1,13 +1,10 @@
 const express = require ('express');
-
 const router = express.Router();
 
 //Middleware
-
 const {protect, admin} = require ("../middleware/authMiddleware"); 
 
 //Controllers
-
 const {
     postImage,
     getAllImages,
@@ -17,7 +14,6 @@ const {
 } = require('../controllers/imageControllers');
 
 //Routes
-
 router
     .route('/') 
     .post(protect, admin, postImage)

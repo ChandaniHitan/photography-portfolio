@@ -50,17 +50,15 @@ function Login({history}) {
 
     return ( 
         <Wrapper>
+            <Heading>USER LOGIN</Heading>
             <Form onSubmit={handleSubmit}>
                 <InputWrapper>
                     <Label>Email: </Label>
-                    <Input name="email" type="email" onChange={handleEmailChange}/>    
-                    
+                    <Input name="email" type="email" onChange={handleEmailChange}/>        
                     <Label>Password:</Label>
                     <Input type="password" onChange={handlePasswordChange}/>
                 </InputWrapper>
-
                 <Button>Submit</Button>
-
             </Form> 
         </Wrapper> 
     );
@@ -71,8 +69,13 @@ const InputWrapper = styled.div`
 `;
 
 const Wrapper = styled(Container)`
-    padding-top: 20px;
-    width: 50%
+    width: 50%;
+    margin-top: 10%;
+`
+const Heading = styled.h2`
+    color: grey;
+    padding-bottom: 20px;
+    text-align: center;
 `
 export default Login;
 

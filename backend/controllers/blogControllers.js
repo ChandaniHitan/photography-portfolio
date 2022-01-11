@@ -35,22 +35,21 @@ const getAllBlogs = asyncHandler(async (req,res) => {
     res.json({blogs, pageNumber, pages: Math.ceil(count / pageSize)});
 })
 
-
 //route GET/api/blog/:id
 //description Display one blog
 //access Everyone
 
-
 const getBlogById = asyncHandler(async (req, res) => {
 
     const blog = await Blog.findById(req.params.id);
-    if(blog) {
-    res.json(blog);
-} else {
-    res.status(404)
-    throw new Error("Blog not found!")
-    }
-})
+        if(blog) {
+                res.json(blog);
+            } else {
+                res.status(404)
+                throw new Error("Blog not found!")
+            }
+        }
+    )
 
 //route PUT/api/blog/
 //description Update blog post

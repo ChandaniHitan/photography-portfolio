@@ -28,14 +28,13 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 }
-
 userSchema.pre('save', async function(next) {
+    // only hash the password if it has been modified (or is new)
     if(!this.isModified('password')){
         next()
     }
-    const salt = await bcrypt.genSalt(10);
+    const salt = await bcrypt.genSalt(10); //generate a salt
     this.password = await bcrypt.hash(this.password, salt);
-
 })
 
-module.exports = User = mongoose.model('User', userSchema);
+module.exports = User = mongoose.model('User', userSchema); //used in controller

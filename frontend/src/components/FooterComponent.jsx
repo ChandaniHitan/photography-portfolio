@@ -8,7 +8,7 @@ function FooterComponent({history}){
                 <Footer>
                      <FooterGrid>
                         <div>
-                        <h5>About</h5>
+                        <A href="/about">About</A>
                         </div>
                         
                         <div>
@@ -16,7 +16,7 @@ function FooterComponent({history}){
                         <SoMe>
                         <div><a href="https://twitter.com/tchandani" className="twitter"><i class="fab fa-twitter" style={{color:"white"}}></i></a></div>
                         <div><a href="https://www.facebook.com/tchandani.daisy" className="facebook"><i class="fab fa-facebook-f" style={{color:"white"}}></i></a></div>
-                        <div><a href="https://www.instagram.com/" className="instagram"><i class="fab fa-instagram" style={{color:"white"}}></i></a></div>
+                        <div><a href="https://www.instagram.com/fotobyashish/" className="instagram"><i class="fab fa-instagram" style={{color:"white"}}></i></a></div>
                         <div><a href="https://www.youtube.com/user/amour4us" className="youtube"><i class="fab fa-youtube" style={{color:"white"}}></i></a></div>
                         </SoMe>
                         </div>
@@ -29,9 +29,7 @@ function FooterComponent({history}){
                         </div>
                     </FooterGrid>
                     <Copyright>Copyright ©{year} All rights reserved</Copyright>
-                </Footer>
-                   
-                
+                </Footer>     
         )
 } 
 
@@ -67,6 +65,18 @@ const SoMe = styled.div`
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: repeat(auto-fit, 25px);
+`
+const A = styled.a`
+    color: white;
+    text-decoration: none;
+    font-family: serif;
+    font-size: 20px;
+    &: hover {
+        color: white;
+        text-decoration: none;
+        font-family: serif;
+        font-size: 20px;
+    }
 `
 
 export default FooterComponent;

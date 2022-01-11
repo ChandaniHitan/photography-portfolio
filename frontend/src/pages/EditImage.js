@@ -135,9 +135,14 @@ function EditImage({ match, history }) {
 
                             {images && images.map(((item, index) => (
                                 <div key={index}>
-                                    <img src={item} alt={item} style={{ width: '100px' }} />
+                                    <img 
+                                        src={item} 
+                                        alt={item} 
+                                        style={{ width: '100px' }} 
+                                    />
                                 </div>
                             )))}
+
                             <FormGroup>
                                 <Label>Select an image</Label>
                                 <Input

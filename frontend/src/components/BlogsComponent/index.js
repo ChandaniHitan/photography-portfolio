@@ -31,7 +31,6 @@ function BlogsComponent(props, {history}) {
     const createdBlog = useSelector(state => state.createBlog);
     const {blog} = createdBlog;
 
-
     const handleTitleChanged = (e) => {
         const title = e.target.value;
         setBlogTitle(title);

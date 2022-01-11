@@ -1,5 +1,5 @@
 const express = require ('express');
-require('dotenv').config();
+require('dotenv').config(); //dotenv separates secretes from source code
 const path = require('path');
 const cors = require ('cors'); //Cross origin resource sharing
 
@@ -21,10 +21,9 @@ app.use(cors());
 
 connectDB(); //Connect Database
 
-app.use(express.json({ extended:false }));
+app.use(express.json({ extended:false })); //to get the json data as an object
 
 //Route
-
 app.use("/api/user", userRoutes);
 app.use("/api/blog", blogRoutes);
 app.use("/api/image", imageRoutes);
@@ -35,13 +34,12 @@ const dirname = path.resolve();
 app.use('/uploads', express.static(path.join(dirname, "uploads")));
 
 //Middleware
-
 app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`)); //Tells API to start
 
 
 

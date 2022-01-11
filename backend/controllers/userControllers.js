@@ -34,10 +34,8 @@ const registerUser = asyncHandler(async (req, res) => {
             res.status(400);
             throw new Error('invalid user data');
         }
-
-
-});
-
+    }
+);
 
 //route POST/api/user/login
 //description User login and get user
@@ -59,7 +57,7 @@ const loginUser = asyncHandler(async (req,res) => {
         res.status(401);
         throw new Error('Invalid email or password');
     }
-})
+});
 
 //route GET/api/user
 //description Display all users
@@ -69,7 +67,6 @@ const getAllUsers = asyncHandler(async (req,res) => {
     const users = await User.find();
     res.json(users);
 });
-
 
 //route DELETE/api/user/:id
 //description Delete user by id
@@ -87,5 +84,5 @@ const deleteUser = asyncHandler(async (req,res) => {
     }
 })
 
-module.exports = {registerUser,loginUser,getAllUsers, deleteUser};
+module.exports = {registerUser,loginUser,getAllUsers,deleteUser}; //used inside routes
 
